@@ -272,54 +272,74 @@
 //     }
 // };
 // 383
-#include <bits/stdc++.h>
-#define ll long long
-#define int int64_t
-using namespace std;
+// class Solution
+// {
+// public:
+//     bool canConstruct(string ransomNote, string magazine)
+//     {
 
-int32_t main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
+//         map<char, int> mp1;
+//         map<char, int> mp2;
+//         for (int i = 0; i < magazine.length(); i++)
+//         {
+//             mp2[magazine[i]]++;
+//         }
+//         for (int i = 0; i < ransomNote.length(); i++)
+//         {
+//             mp1[ransomNote[i]]++;
+//         }
 
-    string s1, s2;
-    cin >> s1 >> s2;
-    map<char, int> mp1;
-    map<char, int> mp2;
-    for (int i = 0; i < s2.length(); i++)
-    {
-        mp2[s2[i]]++;
-    }
-    for (int i = 0; i < s1.length(); i++)
-    {
-        mp1[s1[i]]++;
-    }
- 
-    for (int i = 0; i < s2.length(); i++)
-    {
-        if (mp1.count(s2[i]) == 0)
-        {
-            // cout << s1[i]
-            mp2.erase(s2[i]);
-        }
-        // cout << s2[i];
-    }
-    vector<int> v1;
-    vector<int> v2;
-    for (auto it : mp1)
-    {
-        v1.push_back(it.second);
-    }
-    for (auto it : mp2)
-    {
-        v2.push_back(it.second);
-    }
-    int valid = 0;
-    for (int i = 0; i < v2.size(); i++)
-    {
-        if (v2[i] < v1[i])
-            valid = 1;
-    }
+//         for (int i = 0; i < magazine.length(); i++)
+//         {
+//             if (mp1.count(magazine[i]) == 0)
+//             {
+//                 // cout << s1[i]
+//                 mp2.erase(magazine[i]);
+//             }
+//             // cout << s2[i];
+//         }
+//         vector<int> v1;
+//         vector<int> v2;
+//         for (auto it : mp1)
+//         {
+//             v1.push_back(it.second);
+//         }
+//         for (auto it : mp2)
+//         {
+//             v2.push_back(it.second);
+//         }
+//         int valid = 0;
+//         if (v1.size() == v2.size())
+//         {
 
-    return 0;
-}
+//             for (int i = 0; i < v2.size(); i++)
+//             {
+//                 if (v2[i] < v1[i])
+//                     valid = 1;
+//             }
+//         }
+//         else
+//         {
+//             valid = 1;
+//         }
+//         if (valid == 1)
+//             return 0;
+//         return 1;
+//     }
+// };
+// (optimal One)
+// class Solution {
+// public:
+//     bool canConstruct(string ransomNote, string magazine) {
+//        int ans[26] = {0};
+//         for(char ref : magazine){
+//             ans[ref-'a']++;
+//         }
+//         for(char ref : ransomNote){
+//             if(ans[ref -'a']-- <= 0)
+//                 return 0;
+//         }
+//         return 1;
+
+//     }
+// };
